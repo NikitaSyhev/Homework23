@@ -52,11 +52,14 @@ int neg_arr(int arr[], int length) {
 }
 
 
-void null_arr(int arr1[], int arr2[], int length1, int length2) {
-	int var = 0;
-	for (int i = 0; i < length1; i++)
-
+void null_arr(int arr1[], int length1, int arr2[], int length2)
+{
+	for (int* i = arr1; i < arr1 + length1; i++)
+		for (int* j = arr2; j < arr2 + length2; j++)
+			if (*j == *i)
+				*j = 0;
 }
+
 
 
 
@@ -82,17 +85,22 @@ int main() {
 	std::cout << neg_arr(arr, size) << "\n\n";
 
 	std::cout << "Задание 3: \n";
-	const int size1 = 4;
-	const int size2 = 4;
+	const int size1 = 7;
+	const int size2 = 6;
 	int arr1[size1];
 	int arr2[size2];
 	std::cout << "Изначальные массивы: \n";
-	fill_arr(arr1, size1, -100, 100);
-	fill_arr(arr2, size2, -50, 50);
+	fill_arr(arr1, size1, -5, 5);
+	fill_arr(arr2, size2, -3, 3);
 
 	show_arr(arr1, size1);
 	std::cout << '\n';
 	show_arr(arr2, size2);
+	std::cout << "Массив 2 после вызова функции: \n";
+	null_arr(arr1, size1, arr2, size2);
+	for (int i = 0; i < size2; i++)
+		std::cout << arr2[i] << ' ';
+
 
 
 

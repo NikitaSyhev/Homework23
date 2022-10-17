@@ -22,18 +22,10 @@ void show_arr(T arr[], const int length) {
 }
 
 
-void max_abc(int *pa, int *pb, int *pc) {
-	int max = *pa;
-	for (int i = *pb; i <= *pc; i++) {
-		if (i > max)
-			max = i;
-	
-	}
-	*pa = max;
-	*pb = max;
-	*pc = max;
+void max_abc(int &pa, int &pb, int &pc) {
+	int max = pa < pb ? (pb < pc ? pc : pb) : (pa < pc ? pc : pc);
+	pa = max; pb = max; pc = max;
 }
-
 
 int neg_arr(int arr[], int length) {
 
@@ -70,8 +62,8 @@ int main() {
 	std::cout << "Задание 1.\nВведите 3 переменных: ";
 	std::cin >> a >> b >> c;
 	int* pa = &a; int* pb = &b; int* pc = &c;
-	max_abc(&a, &b, &c);
-	std::cout << *pa << ' ' << *pb << ' ' << *pc;
+	max_abc(a, b, c);
+	std::cout << a << ' ' << b << ' ' << c;
 	std::cout << "\n\n";
 
 

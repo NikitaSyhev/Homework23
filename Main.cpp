@@ -28,19 +28,10 @@ void max_abc(int &pa, int &pb, int &pc) {
 }
 
 int neg_arr(int arr[], int length) {
-
-	int first_index = 0;
-
-	for (int i = 0; i < length; i++) {
-		if (arr[i] < 0) {
-			first_index = i;
-			break;
-		}
-	}
-	if (arr[first_index] < 0)
-		return arr[first_index];
-	else
-		return arr[0];
+	for (int i = 0; i < length; i++)
+		if (arr[i] < 0)
+			return arr[i];
+			return arr[0];
 }
 
 

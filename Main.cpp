@@ -42,12 +42,12 @@ int neg_arr(int arr[], int length) {
 }
 
 
-void null_arr(int arr1[], int length1, int arr2[], int length2)
+void null_arr(int arr1[], const int length1, int arr2[], const int length2)
 {
-	for (int* i = arr1; i < arr1 + length1; i++)
-		for (int* j = arr2; j < arr2 + length2; j++)
-			if (*j == *i)
-				*j = 0;
+	for (int i = 0; i < length1; i++)
+		for (int j = 0; j < length2; j++)
+			if (*(arr1 + i) == *(arr2 + j))
+				*(arr2 + j) = 0;
 }
 
 

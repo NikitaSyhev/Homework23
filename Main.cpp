@@ -23,8 +23,14 @@ void show_arr(T arr[], const int length) {
 }
 
 
-void max_abc(int &pa, int &pb, int &pc) {
-	int max = pa < pb ? (pb < pc ? pc : pb) : (pa < pc ? pc : pc);
+void max_abc(int& pa, int& pb, int& pc) {
+	int max;
+	if (pa > pb && pa > pc)
+		max = pa;
+	else
+		if (pb > pa && pb > pc)
+			max = pb;
+	else max = pc;
 	pa = max; pb = max; pc = max;
 }
 
